@@ -1,1 +1,18 @@
-seconds_remaining: <%= @seconds_remaining %>
+<div class="m-1.5">
+  <div>
+    status: <%= @timer.status %>
+  </div>
+  <div>
+    <%= Pomodoro.PomodoroUtils.timer_text(@timer) %>
+  </div>
+</div>
+
+<div class="m-1.5 flex flex-1 gap-4">
+  <.button phx-click="start">Start</.button>
+  <.button phx-click="pause">Pause</.button>
+  <.button phx-click="rest">Rest</.button>
+</div>
+
+<div class="m-1.5 mt-6">
+  <.button phx-click="reset">Reset</.button>
+</div>
