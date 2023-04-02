@@ -3,7 +3,7 @@
 Goal: Provide a visual view of the existing Pomodoro session
 
 TODO:
-- [ ] Show the current pomodoro status
+- [x] Show the current pomodoro status
 
 ## Installing
 
