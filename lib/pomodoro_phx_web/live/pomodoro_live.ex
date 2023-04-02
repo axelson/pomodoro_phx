@@ -17,31 +17,30 @@ defmodule PomodoroPhxWeb.PomodoroLive do
   @impl Phoenix.LiveView
   def handle_event("start", _value, socket) do
     result = PomodoroTimer.start_ticking()
-    Logger.debug("Starting: #{inspect result}")
+    Logger.debug("Starting: #{inspect(result)}")
     {:noreply, socket}
   end
 
   def handle_event("reset", _value, socket) do
     result = PomodoroTimer.reset()
-    Logger.debug("Resetting: #{inspect result}")
+    Logger.debug("Resetting: #{inspect(result)}")
     {:noreply, socket}
   end
 
   def handle_event("pause", _value, socket) do
     result = PomodoroTimer.pause()
-    Logger.debug("Pausing: #{inspect result}")
+    Logger.debug("Pausing: #{inspect(result)}")
     {:noreply, socket}
   end
 
   def handle_event("rest", _value, socket) do
     result = PomodoroTimer.rest()
-    Logger.debug("Resting: #{inspect result}")
+    Logger.debug("Resting: #{inspect(result)}")
     {:noreply, socket}
   end
 
-
   def handle_event(event, _value, socket) do
-    Logger.warn("Unhandled event: #{inspect event}")
+    Logger.warn("Unhandled event: #{inspect(event)}")
     {:noreply, socket}
   end
 
