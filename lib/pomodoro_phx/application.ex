@@ -10,6 +10,7 @@ defmodule PomodoroPhx.Application do
     children = [
       # Start the Telemetry supervisor
       PomodoroPhxWeb.Telemetry,
+      Pomodoro.PomodoroTimer,
       # Start the PubSub system
       {Phoenix.PubSub, name: PomodoroPhx.PubSub},
       # Start Finch

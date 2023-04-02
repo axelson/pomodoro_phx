@@ -32,6 +32,11 @@ defmodule PomodoroPhx.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:pomodoro, path: "~/dev/pomodoro"},
+      {:exsync, path: "~/dev/forks/exsync", only: :dev, override: true},
+      # {:scenic, path: "~/dev/forks/scenic", override: true},
+
+      # Phoenix deps
       {:phoenix, "~> 1.7.1"},
       {:phoenix_html, "~> 3.3"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},

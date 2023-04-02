@@ -7,6 +7,36 @@
 # General application configuration
 import Config
 
+config :pomodoro_phx, ecto_repos: [Pomodoro.Repo]
+
+config :pomodoro, Pomodoro.Repo,
+  database: "priv/database.db",
+  migration_primary_key: [type: :binary_id],
+  journal_mode: :wal,
+  cache_size: -64000,
+  temp_store: :memory,
+  pool_size: 1
+
+# config :pomodoro, :viewport,
+#   name: :main_viewport,
+#   size: {800, 480},
+#   default_scene: {PomodoroUi.Scene.Main, []},
+#   # default_scene:
+#   #   {PomodoroUi.Scene.MiniComponent, t: {595, 69}, pomodoro_timer_pid: Pomodoro.PomodoroTimer},
+#   drivers: [
+#     [
+#       module: Scenic.Driver.Local,
+#       window: [
+#         title: "Pomodoro Timer"
+#       ],
+#       on_close: :stop_system
+#     ]
+#   ]
+
+config :scenic, :assets, module: PomodoroUi.Assets
+
+config :tzdata, :autoupdate, :disabled
+
 # Configures the endpoint
 config :pomodoro_phx, PomodoroPhxWeb.Endpoint,
   url: [host: "localhost"],
