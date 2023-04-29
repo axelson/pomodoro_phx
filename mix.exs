@@ -33,6 +33,7 @@ defmodule PomodoroPhx.MixProject do
   defp deps do
     [
       {:pomodoro, path: "~/dev/pomodoro"},
+      {:data_tracer, path: "~/dev/data_tracer", only: :dev},
       {:exsync, path: "~/dev/forks/exsync", only: :dev, override: true},
       # {:scenic, path: "~/dev/forks/scenic", override: true},
 
