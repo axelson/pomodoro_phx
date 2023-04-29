@@ -10,7 +10,8 @@ defmodule PomodoroPhx.Application do
     children = [
       # Start the Telemetry supervisor
       PomodoroPhxWeb.Telemetry,
-      Pomodoro.PomodoroTimer,
+      # FIXME: Conditionally start the PomodoroTimer so that this works standalone
+      # Pomodoro.PomodoroTimer,
       # Start the PubSub system
       {Phoenix.PubSub, name: PomodoroPhx.PubSub},
       # Start Finch
