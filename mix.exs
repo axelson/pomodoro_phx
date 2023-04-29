@@ -32,7 +32,8 @@ defmodule PomodoroPhx.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
-      {:pomodoro, path: "~/dev/pomodoro"},
+      # {:pomodoro, path: "~/dev/pomodoro"},
+      {:pomodoro, github: "axelson/pomodoro"},
       {:data_tracer, path: "~/dev/data_tracer", only: :dev},
       {:exsync, path: "~/dev/forks/exsync", only: :dev, override: true},
       # {:scenic, path: "~/dev/forks/scenic", override: true},
