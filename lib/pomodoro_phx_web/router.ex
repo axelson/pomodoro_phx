@@ -17,8 +17,8 @@ defmodule PomodoroPhxWeb.Router do
   scope "/", PomodoroPhxWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
-    live "/timer", PomodoroLive, :show
+    live "/", PomodoroLive, :show
+    get "/home", PageController, :home
   end
 
   # Other scopes may use custom stacks.
