@@ -72,6 +72,21 @@ defmodule PomodoroPhxWeb.PomodoroLive do
       :resting -> "Resting"
       :resting_paused -> "Resting (paused)"
       :finished -> "Resting finished"
+      other_status -> "Unrecognized status (#{inspect(other_status)})"
+    end
+  end
+
+  def status_style(%Pomodoro.PomodoroTimer{status: status}) do
+    case status do
+      :initial -> ""
+      :running -> "color: #7F1616;"
+      :running_paused -> "color: #D66E6E;"
+      :limbo -> "color: #5A0F4E;"
+      :limbo_finished -> "color: #3E0134;"
+      :resting -> "color: #090E3D;"
+      :resting_paused -> "color: #191F58;"
+      :finished -> "color: #080D3B;"
+      _other_status -> "color: #7F5416;"
     end
   end
 end
