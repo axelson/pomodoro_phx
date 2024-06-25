@@ -15,6 +15,12 @@ defmodule PomodoroPhxWeb.PomodoroLive do
   end
 
   @impl Phoenix.LiveView
+  def handle_event("next", _value, socket) do
+    result = PomodoroTimer.next()
+    Logger.debug("Next: #{inspect(result)}")
+    {:noreply, socket}
+  end
+
   def handle_event("start", _value, socket) do
     result = PomodoroTimer.start_ticking()
     Logger.debug("Starting: #{inspect(result)}")
