@@ -55,4 +55,17 @@ defmodule PomodoroPhxWeb.PomodoroLive do
     Logger.warning("Unhandled message: #{inspect(msg)}")
     {:noreply, state}
   end
+
+  def human_readable_timer_status(%Pomodoro.PomodoroTimer{status: status}) do
+    case status do
+      :initial -> "Not started"
+      :running -> "Working"
+      :running_paused -> "Working (paused)"
+      :limbo -> "Limbo"
+      :limbo_finished -> "Limbo finished"
+      :resting -> "Resting"
+      :resting_paused -> "Resting (paused)"
+      :finished -> "Resting finished"
+    end
+  end
 end
