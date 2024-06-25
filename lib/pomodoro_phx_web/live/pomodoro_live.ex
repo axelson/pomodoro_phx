@@ -40,7 +40,7 @@ defmodule PomodoroPhxWeb.PomodoroLive do
   end
 
   def handle_event(event, _value, socket) do
-    Logger.warn("Unhandled event: #{inspect(event)}")
+    Logger.warning("Unhandled event: #{inspect(event)}")
     {:noreply, socket}
   end
 
@@ -52,7 +52,7 @@ defmodule PomodoroPhxWeb.PomodoroLive do
   end
 
   def handle_info(msg, state) do
-    Logger.warn("Unhandled message: #{inspect(msg)}")
+    Logger.warning("Unhandled message: #{inspect(msg)}")
     {:noreply, state}
   end
 end
