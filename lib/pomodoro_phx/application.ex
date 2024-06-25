@@ -7,25 +7,35 @@ defmodule PomodoroPhx.Application do
 
   @impl true
   def start(_type, _args) do
-    children = [
-      # Start the Telemetry supervisor
-      PomodoroPhxWeb.Telemetry,
-      # FIXME: Conditionally start the PomodoroTimer so that this works standalone
-      # Pomodoro.PomodoroTimer,
-      # Start the PubSub system
-      {Phoenix.PubSub, name: PomodoroPhx.PubSub},
-      # Start Finch
-      {Finch, name: PomodoroPhx.Finch},
-      # Start the Endpoint (http/https)
-      PomodoroPhxWeb.Endpoint
-      # Start a worker by calling: PomodoroPhx.Worker.start_link(arg)
-      # {PomodoroPhx.Worker, arg}
-    ]
+    children =
+      [
+        # Start the Telemetry supervisor
+        PomodoroPhxWeb.Telemetry,
+        maybe_start_pomodoro_timer(),
+        # Start the PubSub system
+        {Phoenix.PubSub, name: PomodoroPhx.PubSub},
+        # Start Finch
+        {Finch, name: PomodoroPhx.Finch},
+        # Start the Endpoint (http/https)
+        PomodoroPhxWeb.Endpoint
+        # Start a worker by calling: PomodoroPhx.Worker.start_link(arg)
+        # {PomodoroPhx.Worker, arg}
+      ]
+      |> List.flatten()
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: PomodoroPhx.Supervisor]
     Supervisor.start_link(children, opts)
+  end
+
+  defp maybe_start_pomodoro_timer do
+    if Application.get_env(:pomodoro_phx, :start_pomodoro_timer, false) do
+      [Pomodoro.PomodoroTimer]
+    else
+      []
+    end
+    |> IO.inspect(label: "timer (application.ex<pomodoro_phx>:39)")
   end
 
   # Tell Phoenix to update the endpoint configuration

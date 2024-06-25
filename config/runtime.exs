@@ -20,6 +20,8 @@ if System.get_env("PHX_SERVER") do
   config :pomodoro_phx, PomodoroPhxWeb.Endpoint, server: true
 end
 
+config :pomodoro_phx, :start_pomodoro_timer, true
+
 if config_env() == :prod do
   # The secret key base is used to sign/encrypt cookies and other secrets.
   # A default value is used in config/dev.exs and config/test.exs but you
