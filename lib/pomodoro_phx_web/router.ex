@@ -22,6 +22,14 @@ defmodule PomodoroPhxWeb.Router do
   end
 
   # Other scopes may use custom stacks.
+  scope "/api", PomodoroPhxWeb do
+    pipe_through :api
+    get "/stats.csv", StatsController, :stats
+  end
+
+
+
+  # Other scopes may use custom stacks.
   # scope "/api", PomodoroPhxWeb do
   #   pipe_through :api
   # end

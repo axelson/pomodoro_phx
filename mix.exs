@@ -32,6 +32,7 @@ defmodule PomodoroPhx.MixProject do
   # Type `mix help deps` for examples and options.
   defp deps do
     [
+      {:nimble_csv, ">= 0.0.0"},
       # {:pomodoro, path: "~/dev/pomodoro"},
       {:pomodoro, github: "axelson/pomodoro"},
       {:data_tracer, path: "~/dev/data_tracer", only: :dev},
