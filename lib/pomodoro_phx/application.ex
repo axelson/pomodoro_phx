@@ -31,6 +31,8 @@ defmodule PomodoroPhx.Application do
 
   defp maybe_start_pomodoro_timer do
     if Application.get_env(:pomodoro_phx, :start_pomodoro_timer, false) do
+      # Uncomment this code to test transitions quickly
+      # [{Pomodoro.PomodoroTimer, tick_duration: 1}]
       [Pomodoro.PomodoroTimer]
     else
       []
