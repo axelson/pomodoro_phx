@@ -5,6 +5,9 @@
   <div class="mt-6 mb-4" style={status_style(@timer)}>
     status: <%= human_readable_timer_status(@timer) %>
   </div>
+    <div class="mt-6 mb-4">
+    (total time: <%= total_time(@timer) %>)
+  </div>
 </div>
 
 <div class="m-1.5 flex flex-1 gap-4">

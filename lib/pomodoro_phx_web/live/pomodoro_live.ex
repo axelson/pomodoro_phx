@@ -89,4 +89,8 @@ defmodule PomodoroPhxWeb.PomodoroLive do
       _other_status -> "color: #7F5416;"
     end
   end
+
+  def total_time(%Pomodoro.PomodoroTimer{} = timer) do
+    abs(timer.seconds_remaining)
+  end
 end
