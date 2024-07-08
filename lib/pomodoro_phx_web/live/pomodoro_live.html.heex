@@ -1,13 +1,14 @@
 <div class="m-1.5">
-  <div class="text-5xl text-center">
-    <%= Pomodoro.PomodoroUtils.timer_text(@timer) %>
+  <div class="text-5xl text-center"  style={status_style(@timer)}>
+    <%= Pomodoro.PomodoroUtils.timer_text(@timer.seconds_remaining) %>
   </div>
-  <div class="mt-6 mb-4" style={status_style(@timer)}>
-    status: <%= human_readable_timer_status(@timer) %>
+  <div class={"text-center #{extended_seconds_visible_class(@timer)}"}>
+    <%= Pomodoro.PomodoroUtils.timer_text(@timer.extended_seconds) %>
   </div>
-    <div class="mt-6 mb-4">
-    (total time: <%= total_time(@timer) %>)
-  </div>
+</div>
+
+<div class="mt-6 mb-4" style={status_style(@timer)}>
+  status: <%= human_readable_timer_status(@timer) %>
 </div>
 
 <div class="m-1.5 flex flex-1 gap-4">

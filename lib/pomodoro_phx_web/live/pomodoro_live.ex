@@ -62,7 +62,7 @@ defmodule PomodoroPhxWeb.PomodoroLive do
     {:noreply, state}
   end
 
-  def human_readable_timer_status(%Pomodoro.PomodoroTimer{status: status}) do
+  def human_readable_timer_status(%PomodoroTimer{status: status}) do
     case status do
       :initial -> "Not started"
       :running -> "Working"
@@ -76,21 +76,29 @@ defmodule PomodoroPhxWeb.PomodoroLive do
     end
   end
 
-  def status_style(%Pomodoro.PomodoroTimer{status: status}) do
+  def status_style(%PomodoroTimer{status: status}) do
     case status do
       :initial -> ""
       :running -> "color: #7F1616;"
       :running_paused -> "color: #D66E6E;"
       :limbo -> "color: #5A0F4E;"
       :limbo_finished -> "color: #3E0134;"
-      :resting -> "color: #090E3D;"
+      :resting -> "color: #1d30e2;"
       :resting_paused -> "color: #191F58;"
-      :finished -> "color: #080D3B;"
+      :finished -> "color: #1d30e2;"
       _other_status -> "color: #7F5416;"
     end
   end
 
-  def total_time(%Pomodoro.PomodoroTimer{} = timer) do
+  def extended_seconds_visible_class(%PomodoroTimer{extended_seconds: extended_seconds}) do
+    if extended_seconds > 0 do
+      "visible"
+    else
+      "invisible"
+    end
+  end
+
+  def total_time(%PomodoroTimer{} = timer) do
     abs(timer.seconds_remaining)
   end
 end
