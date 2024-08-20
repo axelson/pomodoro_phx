@@ -35,9 +35,8 @@ defmodule PomodoroPhx.MixProject do
       {:nimble_csv, ">= 0.0.0"},
       # {:pomodoro, path: "~/dev/pomodoro"},
       {:pomodoro, github: "axelson/pomodoro"},
-      {:data_tracer, path: "~/dev/data_tracer", only: :dev},
-      {:exsync, path: "~/dev/forks/exsync", only: :dev, override: true},
-      # {:scenic, path: "~/dev/forks/scenic", override: true},
+      {:data_tracer, "~> 0.1.2", only: :dev},
+      {:exsync, "~> 0.4.1", only: :dev},
 
       # Phoenix deps
       {:phoenix, "~> 1.7.1"},
