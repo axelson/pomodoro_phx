@@ -37,6 +37,8 @@ config :scenic, :assets, module: PomodoroUi.Assets
 
 config :tzdata, :autoupdate, :disabled
 
+config :torch, otp_app: :pomodoro_phx
+
 # Configures the endpoint
 config :pomodoro_phx, PomodoroPhxWeb.Endpoint,
   url: [host: "localhost"],
