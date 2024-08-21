@@ -6,4 +6,8 @@ defmodule PomodoroPhx do
   Contexts are also responsible for managing your data, regardless
   if it comes from the database, an external API or others.
   """
+  use Torch.Pagination,
+    repo: Pomodoro.Repo,
+    model: Pomodoro.Schemas.PomodoroLog,
+    name: :pomodoro_logs
 end

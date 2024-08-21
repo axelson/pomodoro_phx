@@ -1,0 +1,95 @@
+<section id="torch-toolbar">
+  <div class="torch-container">
+    <.link href={~p"/admin/pomodoro_logs/new"} class="torch-button">New Pomodoro log</.link>
+  </div>
+</section>
+<section id="torch-index-content">
+  <div class="torch-container">
+    <section id="torch-filters">
+      <h3>Find Pomodoro logs</h3>
+      <%= form_tag @conn.request_path, method: :get, id: "torch-filters-form" do %>
+        
+        
+        
+          <div class="field">
+            <label>Started at</label>
+            <%= filter_date_input(:pomodoro_log, :started_at, @conn.params) %>
+          </div>
+        
+          <div class="field">
+            <label>Finished at</label>
+            <%= filter_date_input(:pomodoro_log, :finished_at, @conn.params) %>
+          </div>
+        
+          <div class="field">
+            <label>Rest started at</label>
+            <%= filter_date_input(:pomodoro_log, :rest_started_at, @conn.params) %>
+          </div>
+        
+          <div class="field">
+            <label>Rest finished at</label>
+            <%= filter_date_input(:pomodoro_log, :rest_finished_at, @conn.params) %>
+          </div>
+        
+        
+          <div class="field">
+            <label>Total seconds</label>
+            <%= number_filter_select(:pomodoro_log, :total_seconds, @conn.params) %>
+            <%= filter_number_input(:pomodoro_log, :total_seconds, @conn.params) %>
+          </div>
+        
+        <button type="submit" class="torch-button">Search</button>
+        <%= link "Clear Filters", to: ~p"/admin/pomodoro_logs" %>
+      <% end %>
+
+    </section>
+
+    <section id="torch-table">
+    <%= if length(@pomodoro_logs) > 0 do %>
+      <table>
+        <thead>
+          <tr>
+            
+              <th><%= table_link(@conn, "Started at", :started_at) %></th>
+            
+              <th><%= table_link(@conn, "Finished at", :finished_at) %></th>
+            
+              <th><%= table_link(@conn, "Rest started at", :rest_started_at) %></th>
+            
+              <th><%= table_link(@conn, "Rest finished at", :rest_finished_at) %></th>
+            
+              <th><%= table_link(@conn, "Total seconds", :total_seconds) %></th>
+            
+            <th><span>Actions</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= for pomodoro_log <- @pomodoro_logs do %>
+            <tr>
+              
+                <td><%= pomodoro_log.started_at %></td>
+              
+                <td><%= pomodoro_log.finished_at %></td>
+              
+                <td><%= pomodoro_log.rest_started_at %></td>
+              
+                <td><%= pomodoro_log.rest_finished_at %></td>
+              
+                <td><%= pomodoro_log.total_seconds %></td>
+              
+              <td class="torch-actions">
+                <span><.link href={~p"/admin/pomodoro_logs/#{pomodoro_log}"}><%= Torch.I18n.message("Show") %></.link></span>
+                <span><.link href={~p"/admin/pomodoro_logs/#{pomodoro_log}/edit"}><%= Torch.I18n.message("Edit") %></.link></span>
+                <span><.link href={~p"/admin/pomodoro_logs/#{pomodoro_log}"} method="delete" data-confirm={Torch.I18n.message("Are you sure?")}><%= Torch.I18n.message("Delete") %></.link></span>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <%= Torch.PaginationView.pagination(@conn) %>
+    <% else %>
+      <p class="torch-no-data">No Pomodoro logs match your search.</p>
+    <% end %>
+    </section>
+  </div>
+</section>

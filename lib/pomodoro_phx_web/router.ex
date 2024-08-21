@@ -14,6 +14,11 @@ defmodule PomodoroPhxWeb.Router do
     plug :accepts, ["json"]
   end
 
+  scope "/admin", PomodoroPhxWeb.Admin, as: :admin do
+    pipe_through :browser
+    resources "/pomodoro_logs", PomodoroLogController
+  end
+
   scope "/", PomodoroPhxWeb do
     pipe_through :browser
 

@@ -33,14 +33,15 @@ defmodule PomodoroPhx.MixProject do
   defp deps do
     [
       {:nimble_csv, ">= 0.0.0"},
-      # {:pomodoro, path: "~/dev/pomodoro"},
-      {:pomodoro, github: "axelson/pomodoro"},
+      {:pomodoro, path: "~/dev/pomodoro"},
+      # {:pomodoro, github: "axelson/pomodoro"},
       {:torch, "~> 5.3"},
       {:data_tracer, "~> 0.1.2", only: :dev},
       {:exsync, "~> 0.4.1", only: :dev},
 
       # Phoenix deps
       {:phoenix, "~> 1.7.1"},
+      {:phoenix_ecto, "~> 4.6"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.17"},
