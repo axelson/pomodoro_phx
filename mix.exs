@@ -40,7 +40,7 @@ defmodule PomodoroPhx.MixProject do
 
       # Phoenix deps
       {:phoenix, "~> 1.7.1"},
-      {:phoenix_html, "~> 3.3"},
+      {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
       {:phoenix_live_view, "~> 0.20.17"},
       {:floki, ">= 0.30.0", only: :test},
