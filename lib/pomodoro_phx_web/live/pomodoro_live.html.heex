@@ -1,5 +1,5 @@
 <div class="m-1.5">
-  <div class="text-5xl text-center"  style={status_style(@timer)}>
+  <div class="text-5xl text-center" style={status_style(@timer)}>
     <%= Pomodoro.PomodoroUtils.timer_text(@timer.seconds_remaining) %>
   </div>
   <div class={"text-center #{extended_seconds_visible_class(@timer)}"}>

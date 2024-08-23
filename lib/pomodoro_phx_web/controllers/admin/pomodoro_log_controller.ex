@@ -10,6 +10,7 @@ defmodule PomodoroPhxWeb.Admin.PomodoroLogController do
     case PomodoroPhx.paginate_pomodoro_logs(params) do
       {:ok, assigns} ->
         render(conn, :index, assigns)
+
       {:error, error} ->
         conn
         |> put_flash(:error, "There was an error rendering Pomodoro logs. #{inspect(error)}")
@@ -28,6 +29,7 @@ defmodule PomodoroPhxWeb.Admin.PomodoroLogController do
         conn
         |> put_flash(:info, "Pomodoro log created successfully.")
         |> redirect(to: ~p"/admin/pomodoro_logs/#{pomodoro_log}")
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :new, changeset: changeset)
     end
@@ -52,6 +54,7 @@ defmodule PomodoroPhxWeb.Admin.PomodoroLogController do
         conn
         |> put_flash(:info, "Pomodoro log updated successfully.")
         |> redirect(to: ~p"/admin/pomodoro_logs/#{pomodoro_log}")
+
       {:error, %Ecto.Changeset{} = changeset} ->
         render(conn, :edit, pomodoro_log: pomodoro_log, changeset: changeset)
     end

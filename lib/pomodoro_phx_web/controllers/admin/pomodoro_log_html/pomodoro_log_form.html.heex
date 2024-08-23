@@ -12,7 +12,9 @@
     <.torch_input label="Rest finished at" field={f[:rest_finished_at]} type="datetime-local" />
     <.torch_input label="Total seconds" field={f[:total_seconds]} type="number" />
     <div class="torch-submit-form">
-      <button type="submit" class="torch-submit-button"><%= Torch.I18n.message("Submit") %></button>
+      <button type="submit" class="torch-submit-button">
+        <%= Torch.I18n.message("Submit") %>
+      </button>
     </div>
   </fieldset>
 </.form>
