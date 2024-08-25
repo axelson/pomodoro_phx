@@ -21,6 +21,7 @@ import "phoenix_html"
 import {Socket} from "phoenix"
 import {LiveSocket} from "phoenix_live_view"
 import topbar from "../vendor/topbar"
+import { format, parseISO } from 'date-fns';
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}})
@@ -39,3 +40,9 @@ liveSocket.connect()
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
 
+const items = document.querySelectorAll('[role~="local-datetime"]')
+items.forEach(item => {
+  const date = parseISO(item.dataset.datetime);
+
+  item.innerHTML = format(date, 'yyyy-MM-dd HH:mm:ss');
+});

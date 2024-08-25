@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "date-fns": "^3.6.0"
+  },
+  "devDependencies": {
+    "prettier": "3.3.3"
+  }
+}

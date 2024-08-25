@@ -13,6 +13,25 @@ defmodule PomodoroPhxWeb.CoreComponents do
   alias Phoenix.LiveView.JS
   import PomodoroPhxWeb.Gettext
 
+  attr :datetime, NaiveDateTime, required: false
+
+  def local_datetime(%{datetime: nil} = assigns) do
+    ~H"""
+    """
+  end
+
+  def local_datetime(assigns) do
+    ~H"""
+    <span role="local-datetime" data-datetime={to_js_date(@datetime)}>
+      <%= @datetime %>
+    </span>
+    """
+  end
+
+  defp to_js_date(%NaiveDateTime{} = nd) do
+    DateTime.from_naive!(nd, "Etc/UTC") |> DateTime.to_iso8601()
+  end
+
   @doc """
   Renders a modal.
 
