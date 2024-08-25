@@ -13,6 +13,19 @@ defmodule PomodoroPhxWeb.CoreComponents do
   alias Phoenix.LiveView.JS
   import PomodoroPhxWeb.Gettext
 
+  attr :label, :string, required: true
+  attr :field, :any, required: true
+
+  def local_datetime_input(assigns) do
+    import Torch.Component
+
+    ~H"""
+    <div role="datetime-local-form-group" data-form-name={@field.name}>
+      <.torch_input label={@label} field={@field} type="datetime-local" />
+    </div>
+    """
+  end
+
   attr :datetime, NaiveDateTime, required: false
 
   def local_datetime(%{datetime: nil} = assigns) do
