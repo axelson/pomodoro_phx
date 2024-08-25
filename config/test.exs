@@ -18,3 +18,12 @@ config :logger, level: :warning
 
 # Initialize plugs at runtime for faster test compilation
 config :phoenix, :plug_init_mode, :runtime
+
+config :pomodoro, Pomodoro.Repo,
+  database: "test/database.db",
+  migration_primary_key: [type: :binary_id],
+  journal_mode: :wal,
+  cache_size: -64000,
+  temp_store: :memory,
+  pool: Ecto.Adapters.SQL.Sandbox,
+  pool_size: 1

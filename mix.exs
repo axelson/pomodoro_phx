@@ -9,6 +9,9 @@ defmodule PomodoroPhx.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
+      preferred_cli_env: [
+        "test.setup": :test
+      ],
       deps: deps()
     ]
   end
@@ -38,6 +41,7 @@ defmodule PomodoroPhx.MixProject do
       {:torch, "~> 5.3"},
       {:data_tracer, "~> 0.1.2", only: :dev},
       {:exsync, "~> 0.4.1", only: :dev},
+      {:machete, "~> 0.3.3", only: [:test]},
 
       # Phoenix deps
       {:phoenix, "~> 1.7.1"},
@@ -70,7 +74,8 @@ defmodule PomodoroPhx.MixProject do
       setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
       "assets.build": ["tailwind default", "esbuild default"],
-      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
+      "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"],
+      "test.setup": ["ecto.create", "ecto.migrate"]
     ]
   end
 end

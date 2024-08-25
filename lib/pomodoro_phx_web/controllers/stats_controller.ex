@@ -1,12 +1,13 @@
 defmodule PomodoroPhxWeb.StatsController do
   use PomodoroPhxWeb, :controller
   alias NimbleCSV.RFC4180, as: CSV
+  alias Pomodoro.Schemas.PomodoroLog
 
   # Returns the stats for today
   def stats(conn, _params) do
     logs =
       fetch_logs()
-      |> mark_in_progress_pomodoro()
+      |> mark_last_pomodoro_as_in_progress()
 
     rows =
       Enum.map(logs, fn log ->
@@ -35,13 +36,38 @@ defmodule PomodoroPhxWeb.StatsController do
   end
 
   @doc "Mark the last pomodoro as currently in progress if it isn't finished"
-  def mark_in_progress_pomodoro([]), do: []
+  def mark_last_pomodoro_as_in_progress([]), do: []
 
-  def mark_in_progress_pomodoro(logs) do
+  def mark_last_pomodoro_as_in_progress(logs) do
     {head, [tail]} = Enum.split(logs, -1)
-    tail = %{tail | finished_at: tail.finished_at || NaiveDateTime.utc_now()}
+    tail = mark_as_in_progress(tail)
     Enum.concat(head, [tail])
   end
+
+  defp mark_as_in_progress(%PomodoroLog{finished_at: nil} = log) do
+    %PomodoroLog{log | finished_at: NaiveDateTime.utc_now()}
+  end
+
+  defp mark_as_in_progress(%PomodoroLog{rest_started_at: nil} = log) do
+    %PomodoroLog{log | rest_started_at: NaiveDateTime.utc_now()}
+  end
+
+  defp mark_as_in_progress(%PomodoroLog{rest_finished_at: nil} = log) do
+    %PomodoroLog{rest_started_at: rest_started_at} = log
+    fifteen_minutes_after = NaiveDateTime.shift(rest_started_at, minute: 15)
+    now = NaiveDateTime.utc_now()
+
+    rest_finished_at =
+      if NaiveDateTime.diff(now, fifteen_minutes_after) < 0 do
+        now
+      else
+        fifteen_minutes_after
+      end
+
+    %PomodoroLog{log | rest_finished_at: rest_finished_at}
+  end
+
+  defp mark_as_in_progress(%PomodoroLog{} = log), do: log
 
   def fetch_logs do
     import Ecto.Query
