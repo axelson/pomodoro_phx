@@ -10,5 +10,6 @@ TODO:
 mix deps.get
 mix ecto.create
 mix ecto.migrate
+npm install --prefix assets
 iex -S mix phx.server
 http://localhost:4000
