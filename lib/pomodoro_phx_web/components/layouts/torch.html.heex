@@ -13,6 +13,9 @@
       rel="stylesheet"
       href={Phoenix.VerifiedRoutes.static_path(@conn, "/torch/theme.css")}
     />
+    <%# This is slightly hacky, but that's okay %>
+    <script defer phx-track-static type="text/javascript" src={~p"/assets/app.js"}>
+    </script>
   </head>
 
   <body class={Torch.Helpers.body_classes(@conn)}>

@@ -60,15 +60,25 @@
           <tbody>
             <%= for pomodoro_log <- @pomodoro_logs do %>
               <tr>
-                <td><%= pomodoro_log.started_at %></td>
+                <td>
+                  <.local_datetime datetime={pomodoro_log.started_at} />
+                </td>
 
-                <td><%= pomodoro_log.finished_at %></td>
+                <td>
+                  <.local_datetime datetime={pomodoro_log.finished_at} />
+                </td>
 
-                <td><%= pomodoro_log.rest_started_at %></td>
+                <td>
+                  <.local_datetime datetime={pomodoro_log.rest_started_at} />
+                </td>
 
-                <td><%= pomodoro_log.rest_finished_at %></td>
+                <td>
+                  <.local_datetime datetime={pomodoro_log.rest_finished_at} />
+                </td>
 
-                <td><%= pomodoro_log.total_seconds %></td>
+                <td>
+                  <%= pomodoro_log.total_seconds %>
+                </td>
 
                 <td class="torch-actions">
                   <span>
