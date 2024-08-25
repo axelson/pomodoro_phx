@@ -9,9 +9,9 @@ defmodule PomodoroPhxWeb.CoreComponents do
   Icons are provided by [heroicons](https://heroicons.com). See `icon/1` for usage.
   """
   use Phoenix.Component
+  use Gettext, backend: PomodoroPhxWeb.Gettext
 
   alias Phoenix.LiveView.JS
-  import PomodoroPhxWeb.Gettext
 
   attr :label, :string, required: true
   attr :field, :any, required: true

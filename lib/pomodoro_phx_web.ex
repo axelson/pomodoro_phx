@@ -42,8 +42,8 @@ defmodule PomodoroPhxWeb do
         formats: [:html, :json],
         layouts: [html: PomodoroPhxWeb.Layouts]
 
+      use Gettext, backend: PomodoroPhxWeb.Gettext
       import Plug.Conn
-      import PomodoroPhxWeb.Gettext
 
       unquote(verified_routes())
     end
@@ -81,11 +81,11 @@ defmodule PomodoroPhxWeb do
 
   defp html_helpers do
     quote do
+      use Gettext, backend: PomodoroPhxWeb.Gettext
       # HTML escaping functionality
       import Phoenix.HTML
       # Core UI components and translation
       import PomodoroPhxWeb.CoreComponents
-      import PomodoroPhxWeb.Gettext
 
       # Shortcut for generating JS commands
       alias Phoenix.LiveView.JS
