@@ -17,22 +17,22 @@
     <section class="torch-show-details">
       <div class="torch-show-attribute">
         <div class="torch-show-label">Started at:</div>
-        <div class="torch-show-data"><%= @pomodoro_log.started_at %></div>
+        <div class="torch-show-data"><.local_datetime datetime={@pomodoro_log.started_at} /></div>
       </div>
 
       <div class="torch-show-attribute">
         <div class="torch-show-label">Finished at:</div>
-        <div class="torch-show-data"><%= @pomodoro_log.finished_at %></div>
+        <div class="torch-show-data"><.local_datetime datetime={@pomodoro_log.finished_at} /></div>
       </div>
 
       <div class="torch-show-attribute">
         <div class="torch-show-label">Rest started at:</div>
-        <div class="torch-show-data"><%= @pomodoro_log.rest_started_at %></div>
+        <div class="torch-show-data"><.local_datetime datetime={@pomodoro_log.rest_started_at} /></div>
       </div>
 
       <div class="torch-show-attribute">
         <div class="torch-show-label">Rest finished at:</div>
-        <div class="torch-show-data"><%= @pomodoro_log.rest_finished_at %></div>
+        <div class="torch-show-data"><.local_datetime datetime={@pomodoro_log.rest_finished_at} /></div>
       </div>
 
       <div class="torch-show-attribute">
