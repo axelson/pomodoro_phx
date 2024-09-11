@@ -21,9 +21,11 @@ defmodule PomodoroPhxWeb.Router do
 
   scope "/", PomodoroPhxWeb do
     pipe_through :browser
+    import LogViz.Router
 
     live "/", PomodoroLive, :show
     get "/home", PageController, :home
+    log_viz "/logs"
   end
 
   # Other scopes may use custom stacks.

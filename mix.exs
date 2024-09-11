@@ -42,6 +42,7 @@ defmodule PomodoroPhx.MixProject do
       {:data_tracer, "~> 0.1.2", only: :dev},
       {:exsync, "~> 0.4.1", only: :dev},
       {:machete, "~> 0.3.3", only: [:test]},
+      {:log_viz, github: "axelson/log_viz"},
 
       # Phoenix deps
       {:phoenix, "~> 1.7.1"},
