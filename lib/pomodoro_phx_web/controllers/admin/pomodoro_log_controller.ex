@@ -46,7 +46,8 @@ defmodule PomodoroPhxWeb.Admin.PomodoroLogController do
     render(conn, :edit, pomodoro_log: pomodoro_log, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "pomodoro_log" => pomodoro_log_params}) do
+  def update(conn, params) do
+    %{"id" => id, "pomodoro_log_params" => pomodoro_log_params} = params
     pomodoro_log = Pomodoro.get_pomodoro_log!(id)
 
     case Pomodoro.update_pomodoro_log(pomodoro_log, pomodoro_log_params) do
