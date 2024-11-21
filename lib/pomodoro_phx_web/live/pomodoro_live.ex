@@ -6,7 +6,7 @@ defmodule PomodoroPhxWeb.PomodoroLive do
   @impl Phoenix.LiveView
   def mount(_params, _session, socket) do
     if connected?(socket) do
-      PomodoroTimer.register(self())
+      PomodoroTimer.register()
     end
 
     socket = assign(socket, timer: PomodoroTimer.get_timer())
