@@ -9,11 +9,12 @@ defmodule PomodoroPhx.MixProject do
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      preferred_cli_env: [
-        "test.setup": :test
-      ],
       deps: deps()
     ]
+  end
+
+  def cli do
+    [preferred_envs: ["test.setup": :test]]
   end
 
   # Configuration for the OTP application.
