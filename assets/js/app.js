@@ -26,6 +26,7 @@ import { renderDateTimeInLocalTimezone } from "./localDateTime";
 let csrfToken = document
   .querySelector("meta[name='csrf-token']")
   .getAttribute("content");
+// TODO: Make /live configurable
 let liveSocket = new LiveSocket("/live", Socket, {
   params: { _csrf_token: csrfToken },
 });
