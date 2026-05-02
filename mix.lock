@@ -44,6 +44,7 @@
   "launcher": {:git, "https://github.com/axelson/scenic_launcher.git", "a3cc9f3a6a104913bc6821b874eda7fd12671255", []},
   "lazy_for": {:hex, :lazy_for, "1.1.0", "417774bac8df3801d504307b1c51ed7aeb6adac06751e890d82f6ed661584ee6", [:mix], [], "hexpm", "5ce1cd1246188c4640d00240e8c2bd87a22a040a70a12e65937eb49c1e9b566e"},
   "log_viz": {:git, "https://github.com/axelson/log_viz.git", "128e8fdc85a5530fd82da67c3bf1dae220e0a9d4", []},
+  "logger_backends": {:hex, :logger_backends, "1.0.0", "09c4fad6202e08cb0fbd37f328282f16539aca380f512523ce9472b28edc6bdf", [:mix], [], "hexpm", "1faceb3e7ec3ef66a8f5746c5afd020e63996df6fd4eb8cdb789e5665ae6c9ce"},
   "machete": {:hex, :machete, "0.3.11", "64769196d9cf7a6d6192739c11152bf1c0ba12ca04029180c77188d8e292f962", [:mix], [{:jason, "~> 1.4", [hex: :jason, repo: "hexpm", optional: false]}], "hexpm", "2d58062c7bcf344645aba574d59f6547793d8a1d3413389b1b5d6084d05cae77"},
   "machinery": {:hex, :machinery, "1.1.0", "799c1061fe6cb3d32f03d48721607c14b152bc002fde600818f9eab4ef42bcca", [:mix], [], "hexpm", "ba3b41f607211a7433c5546446dc3a58e8a7b3cde7d7d364de3936ff01964188"},
   "matcha": {:hex, :matcha, "0.1.10", "1a504638dae246bc4c60970632f448a7768d61d8e20833c717dce50a00d3d5c6", [:mix], [{:recon, ">= 2.3.0", [hex: :recon, repo: "hexpm", optional: false]}], "hexpm", "ea83b1753de38294191301483fbe34b97e812605205b89c581b97336c9b3e7eb"},
