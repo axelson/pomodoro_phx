@@ -1,7 +1,6 @@
 defmodule PomodoroPhxWeb.StatsControllerTest do
   use PomodoroPhxWeb.ConnCase, async: true
   use Machete
-  alias NimbleCSV.RFC4180, as: CSV
 
   defmodule SimpleCsv do
     def parse(csv) do
@@ -9,7 +8,7 @@ defmodule PomodoroPhxWeb.StatsControllerTest do
 
       stream
       |> IO.binstream(:line)
-      |> CSV.parse_stream(skip_headers: false)
+      |> NimbleCSV.RFC4180.parse_stream(skip_headers: false)
       |> Stream.transform(nil, fn
         headers, nil -> {[], headers}
         row, headers -> {[Enum.zip(headers, row) |> Map.new()], headers}
