@@ -24,6 +24,7 @@ defmodule PomodoroPhxWeb.Router do
     import LogViz.Router
 
     live "/", PomodoroLive, :show
+    live "/viz", VizLive, :show
     get "/home", PageController, :home
     log_viz "/logs"
   end
