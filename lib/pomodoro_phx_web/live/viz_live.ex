@@ -83,6 +83,7 @@ defmodule PomodoroPhxWeb.VizLive do
     logs
     |> Enum.map(&pomodoro_length/1)
     |> Enum.sum()
+    |> Kernel./(1)
     |> Float.round(1)
   end
 
