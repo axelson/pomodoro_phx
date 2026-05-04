@@ -901,6 +901,10 @@ select {
   left: 0px;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .left-\[40rem\] {
   left: 40rem;
 }
@@ -1118,6 +1122,18 @@ select {
   width: 2.5rem;
 }
 
+.w-0\.5 {
+  width: 0.125rem;
+}
+
+.w-0 {
+  width: 0px;
+}
+
+.w-12 {
+  width: 3rem;
+}
+
 .w-6 {
   width: 1.5rem;
 }
@@ -1260,6 +1276,10 @@ select {
   border-radius: 0.375rem;
 }
 
+.rounded-sm {
+  border-radius: 0.125rem;
+}
+
 .rounded-full {
   border-radius: 9999px;
 }
@@ -1328,6 +1348,31 @@ select {
 .bg-blue-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(59 130 246 / var(--tw-bg-opacity));
+}
+
+.bg-red-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(220 38 38 / var(--tw-bg-opacity));
+}
+
+.bg-orange-400 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(251 146 60 / var(--tw-bg-opacity));
+}
+
+.bg-blue-600 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(37 99 235 / var(--tw-bg-opacity));
+}
+
+.bg-gray-100 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(243 244 246 / var(--tw-bg-opacity));
+}
+
+.bg-black {
+  --tw-bg-opacity: 1;
+  background-color: rgb(0 0 0 / var(--tw-bg-opacity));
 }
 
 .bg-brand\/5 {
@@ -1456,6 +1501,10 @@ select {
   text-align: right;
 }
 
+.font-mono {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
 .text-lg {
   font-size: 1.125rem;
   line-height: 1.75rem;
@@ -1473,6 +1522,16 @@ select {
 .text-5xl {
   font-size: 3rem;
   line-height: 1;
+}
+
+.text-xl {
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+}
+
+.text-xs {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
 
 .text-\[2rem\] {
@@ -1494,6 +1553,10 @@ select {
 
 .font-medium {
   font-weight: 500;
+}
+
+.font-bold {
+  font-weight: 700;
 }
 
 .leading-8 {
@@ -1563,6 +1626,11 @@ select {
 .text-zinc-700 {
   --tw-text-opacity: 1;
   color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+
+.text-gray-500 {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity));
 }
 
 .text-brand {
@@ -1773,42 +1841,6 @@ select {
 
 .group:hover .group-hover\:opacity-70 {
   opacity: 0.7;
-}
-
-.phx-no-feedback.phx-no-feedback\:hidden {
-  display: none;
-}
-
-.phx-no-feedback.phx-no-feedback\:border-zinc-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(212 212 216 / var(--tw-border-opacity));
-}
-
-.phx-no-feedback.phx-no-feedback\:focus\:border-zinc-400:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(161 161 170 / var(--tw-border-opacity));
-}
-
-.phx-no-feedback.phx-no-feedback\:focus\:ring-zinc-800\/5:focus {
-  --tw-ring-color: rgb(39 39 42 / 0.05);
-}
-
-.phx-no-feedback .phx-no-feedback\:hidden {
-  display: none;
-}
-
-.phx-no-feedback .phx-no-feedback\:border-zinc-300 {
-  --tw-border-opacity: 1;
-  border-color: rgb(212 212 216 / var(--tw-border-opacity));
-}
-
-.phx-no-feedback .phx-no-feedback\:focus\:border-zinc-400:focus {
-  --tw-border-opacity: 1;
-  border-color: rgb(161 161 170 / var(--tw-border-opacity));
-}
-
-.phx-no-feedback .phx-no-feedback\:focus\:ring-zinc-800\/5:focus {
-  --tw-ring-color: rgb(39 39 42 / 0.05);
 }
 
 .phx-submit-loading.phx-submit-loading\:opacity-75 {
