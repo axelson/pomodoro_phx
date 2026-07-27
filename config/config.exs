@@ -41,6 +41,7 @@ config :torch, otp_app: :pomodoro_phx
 
 # Configures the endpoint
 config :pomodoro_phx, PomodoroPhxWeb.Endpoint,
+  adapter: Bandit.PhoenixAdapter,
   url: [host: "localhost"],
   render_errors: [
     formats: [html: PomodoroPhxWeb.ErrorHTML, json: PomodoroPhxWeb.ErrorJSON],

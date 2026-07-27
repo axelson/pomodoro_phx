@@ -47,7 +47,7 @@ defmodule PomodoroPhx.MixProject do
       {:logger_backends, "~> 1.0"},
 
       # Phoenix deps
-      {:phoenix, "~> 1.7.1"},
+      {:phoenix, "~> 1.7.1 or ~> 1.8"},
       {:phoenix_ecto, "~> 4.6"},
       {:phoenix_html, "~> 4.1"},
       {:phoenix_live_reload, "~> 1.2", only: :dev},
@@ -64,7 +64,7 @@ defmodule PomodoroPhx.MixProject do
       {:telemetry_poller, "~> 1.0"},
       {:gettext, "~> 0.26"},
       {:jason, "~> 1.2"},
-      {:plug_cowboy, "~> 2.5"}
+      {:bandit, "~> 1.0"}
     ]
   end
 
